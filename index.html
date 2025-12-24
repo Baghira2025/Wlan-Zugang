@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WLAN-Zugang</title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f5f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 360px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .info {
+      margin: 16px 0;
+      font-size: 18px;
+    }
+
+    .value {
+      font-weight: bold;
+      background: #eee;
+      padding: 8px;
+      border-radius: 8px;
+      margin-top: 6px;
+      word-break: break-all;
+    }
+
+    button {
+      margin-top: 16px;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #007aff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:active {
+      background: #005fcc;
+    }
+
+    .hint {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>📶 WLAN-Zugang</h1>
+
+    <div class="info">
+      Netzwerkname (SSID)
+      <div class="value" id="ssid">Mordor Gast</div>
+    </div>
+
+    <div class="info">
+      Passwort
+      <div class="value" id="password">FrodoBeutlinAufReisen</div>
+    </div>
+
+    <button onclick="copyPassword()">🔑 Passwort kopieren</button>
+
+    <div class="hint">
+      📱 iPhone: Einstellungen → WLAN → Netzwerk auswählen → Passwort einfügen<br>
+      🤖 Android: Passwort einfügen oder QR-Code nutzen
+    </div>
+  </div>
+
+  <script>
+    function copyPassword() {
+      const pw = document.getElementById("password").innerText;
+      navigator.clipboard.writeText(pw).then(() => {
+        alert("Passwort kopiert 👍");
+      });
+    }
+  </script>
+</body>
+</html>
